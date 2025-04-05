@@ -17,7 +17,6 @@
           - exa
           - fzf
           - podman
-          - git
         state: latest
 
     - name: "Install Python packages"
