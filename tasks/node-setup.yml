@@ -6,18 +6,14 @@
     - install
     - node
 
-- name: Download nvm install script
-  get_url:
-    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh
-    dest: /tmp/install_nvm.sh
-    mode: '0755'
-  tags:
-    - nvm
-
-- name: Run the nvm install script
-  shell: bash /tmp/install_nvm.sh
-  tags:
-    - nvm
+- name: Install nvm (Node Version Manager)
+  hosts: localhost
+  tasks:
+    - name: Download and run nvm install script
+      command: >
+        curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+      tags:
+        - nvm
 
 - name: npmjs prefix
   shell: mkdir -p ~/.local/.npm-global
