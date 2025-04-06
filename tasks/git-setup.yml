@@ -12,17 +12,17 @@
     value: "andrcosta206"
   tags:
   - git-personal
-- name: Git CTW setup email
-  git_config:
-    name: user.email
-    scope: global
-    value: "TOBE_DEFINED"
-  tags:
-  - git-ctw
-- name: Git personal setup name
-  git_config:
-    name: user.name
-    scope: global
-    value: "DONT_REMEMBER"
-  tags:
-  - git-ctw
+# - name: Git CTW setup email
+#   git_config:
+#     name: user.email
+#     scope: global
+#     value: "TOBE_DEFINED"
+#   tags:
+#   - git-ctw
+# - name: Git personal setup name
+#   git_config:
+#     name: user.name
+#     scope: global
+#     value: "DONT_REMEMBER"
+#   tags:
+#   - git-ctw
