@@ -14,14 +14,15 @@
       - install
       - core
   tasks:
-    - include_tasks: tasks/ssh.yml, tasks/git-setup.yml
-    - include_task: tasks/core-setup.yml
-    - include_task: tasks/node-setup.yml
-    - include_task: tasks/npm-packages.yml
-    - include_task: tasks/zsh-setup.yml
-    - include_task: tasks/nvim-setup.yml
+    - include_tasks: tasks/ssh.yml,
+      tasks/git-setup.yml,
+      tasks/core-setup.yml,
+      tasks/node-setup.yml,
+      tasks/npm-packages.yml,
+      tasks/zsh-setup.yml,
+      tasks/nvim-setup.yml,
     # - include_task: tasks/zen.yml
     # - include_task: tasks/debugger.yml
-    - include_task: tasks/dotfiles.yml
-    - include: tasks/productivity-tools.yml
+      tasks/dotfiles.yml,
+      tasks/productivity-tools.yml
     # - include_task: tasks/lsp.yml
