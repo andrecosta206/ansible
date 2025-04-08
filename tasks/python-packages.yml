@@ -1,0 +1,16 @@
+- name: Install pipx using npm
+  apt:
+    name: pipx
+    global: yes
+  tags:
+    - install
+    - python
+
+- name: Ensure pipx binary path is added to shell
+  shell: |
+    pipx ensurepath
+  args:
+    executable: /bin/zsh
+  tags:
+    - install
+    - python

@@ -20,6 +20,7 @@
     - include_tasks: tasks/node-setup.yml
     - include_tasks: tasks/npm-packages.yml
     - include_tasks: tasks/zsh-setup.yml
+    - include_tasks: tasks/python-packages.yml
     - include_tasks: tasks/nvim-setup.yml
     # - include_task: tasks/zen.yml
     # - include_task: tasks/debugger.yml
