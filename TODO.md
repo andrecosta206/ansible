@@ -1,6 +1,8 @@
 ## Instalations
 
-everything
+fzf-tab
+fd-find
+lazygit
 
 #Stow
 
