@@ -4,6 +4,14 @@ fzf-tab
 fd-find
 lazygit
 aws, docker, kubenetes, openlens
+cant access repo ( check the issue)
+  ansible.builtin.git:
+    repo: 'git@github.com:andrcosta44/.dotfiles.git'
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
 
 #Stow
 

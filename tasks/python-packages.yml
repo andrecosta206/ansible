@@ -1,7 +1,6 @@
 - name: Install pipx
   apt:
     name: pipx
-    global: yes
   become: true
   tags:
     - install
