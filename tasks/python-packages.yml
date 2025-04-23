@@ -1,7 +1,8 @@
-- name: Install pipx using npm
+- name: Install pipx
   apt:
     name: pipx
     global: yes
+  become: true
   tags:
     - install
     - python
