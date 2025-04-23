@@ -20,8 +20,8 @@
 #   tags:
 #   - git-ctw
 # - name: Git personal setup name
-#   git_config:
-#     name: user.name
+    # - include_task: tasks/lsp.yml
+#   git_config#     name: user.name
 #     scope: global
 #     value: "DONT_REMEMBER"
 #   tags:
