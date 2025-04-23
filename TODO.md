@@ -3,14 +3,15 @@
 fzf-tab
 fd-find
 lazygit
+aws, docker, kubenetes, openlens
 
 #Stow
 
-not sure
+change/create script for running stow
 
 #ssh
 
-reuse existing keys
+explore how to save ssh.private key in the new machine or if it works inside the vault
 
 ### Ansible vault
 
