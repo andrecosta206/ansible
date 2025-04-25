@@ -2,40 +2,50 @@
   apt:
     name: zsh
     state: present
-  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+  tags: &tags_for_zsh_tasks ["install", "productivity", "dotfiles", "zsh"]
   become: yes
 
-- name: Change shell to zsh
-  shell: chsh -s $(which zsh)
-  tags: *tags_for_zsh_tasks
+- name: Get the current system user
+  command: whoami
+  register: current_user
+
+- name: Set default shell to zsh for the current system user
+  user:
+    name: "{{ current_user.stdout }}"
+    shell: /bin/zsh
   become: yes
+  tags: *tags_for_zsh_tasks
+
+# - name: Change shell to zsh
+#   shell: chsh -s $(which zsh)
+#   tags: *tags_for_zsh_tasks
+#   become: yes
 
 - name: Check that the somefile.conf exists
   stat:
-    path: /home/andrc/.oh-my-zsh
+    path: "{{ansible_env.HOME}}/.oh-my-zsh"
   register: oh_my_stats
   tags: *tags_for_zsh_tasks
 
 - name: Oh-My-Zsh
   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
   when: oh_my_stats.stat.exists == False
-  become_user: andrc
   tags: *tags_for_zsh_tasks
 
 - name: Install zsh-highlighting
   ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: "{{ lookup('env', 'ZSH_CUSTOM') | default(ansible_env.HOME + '/.oh-my-zsh/custom', true) }}/plugins/zsh-syntax-highlighting"
   tags: *tags_for_zsh_tasks
 
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "{{ lookup('env', 'ZSH_CUSTOM') | default(ansible_env.HOME + '/.oh-my-zsh/custom', true) }}/plugins/zsh-syntax-autosuggestions"
   tags: *tags_for_zsh_tasks
 
 - name: Install fzf-tab
   ansible.builtin.git:
-    repo: 'https://github.com/Aloxaf/fzf-tab'
+    repo: "https://github.com/Aloxaf/fzf-tab"
     dest: "{{ lookup('env', 'ZSH_CUSTOM') | default(ansible_env.HOME + '/.oh-my-zsh/custom', true) }}/plugins/fzf-tab"
   tags: *tags_for_zsh_tasks
