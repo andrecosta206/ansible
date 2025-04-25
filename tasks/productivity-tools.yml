@@ -1,7 +1,9 @@
 - name: Install packages
   become: true
   apt:
-    name: [ "tmux","eza","podman","fzf", "xclip", "tldr", "ripgrep"]
+    name:
+      ["tmux", "eza", "fzf", "xclip", "tldr", "ripgrep", "lazygit", "fd-find"]
+    state: present
   tags:
     - install
     - productivity
